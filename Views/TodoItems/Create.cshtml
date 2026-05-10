@@ -1,0 +1,47 @@
+@model TODO_Entity.Models.TodoItem
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="glass-card">
+            <div class="d-flex align-items-center mb-4">
+                <a href="/TodoItems" class="btn btn-secondary btn-sm me-3">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h2 class="mb-0">Create New Task</h2>
+            </div>
+
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Task Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="What needs to be done?" required />
+                    <span asp-validation-for="Title" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Add some details..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Due Date (Calendar Option)</label>
+                    <input asp-for="DueDate" type="date" class="form-control" />
+                    <span asp-validation-for="DueDate" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4 mt-4">
+                    <input type="checkbox" class="btn-check" id="btn-check-outlined" asp-for="IsCompleted" autocomplete="off">
+                    <label class="btn btn-outline-success d-block text-center py-2" for="btn-check-outlined">
+                        <i class="bi bi-check-square me-2"></i> Task Completed?
+                    </label>
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="bi bi-check2"></i> Save Task
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
